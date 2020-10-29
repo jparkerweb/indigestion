@@ -28,13 +28,13 @@
 
 ## Initial Configuration
 
-`Indigestion` creates a `userconfig.json` file the first time it is run.  This file hold your SMTP server and authentication values for sending test emails.  Make sure to edit the file before sending any messages.
+`Indigestion` creates a `userconfig.json` file the first time it is run.  This file holds your SMTP server and authentication values for sending test emails.  Make sure to edit the file before sending any messages.
 
 ---
 
 ## Indigestion Message Structure
 
-* `Idigestion`'s source data for email messages are stored in `json` format.  All `json` files in the `emails` directory are parsed for common data fields (from, to, subject, body, etc.) that are used to create and send email messages.
+* `Idigestion`'s source data for email messages are stored in `json` format (one file per message).  All `json` files in the `emails` directory are parsed for common data fields (from, to, subject, body, etc.) that are used to create and send email messages.
 
 * example email `json` file:  
   ```json
@@ -54,11 +54,11 @@
   }
   ```
 
-* emails are sent using `nodemailer`.  for more info on message structure reference the docs here: https://nodemailer.com/message/
+* Emails are sent using `nodemailer`.  for more info on message structure reference the docs here: https://nodemailer.com/message/
 
-* local files you want to attach to test emails should be stored in the `./attachments` folder.  For more info on the various way to attach files read the docs here: https://nodemailer.com/message/attachments/
+* Local files you want to attach to test emails should be stored in the `./attachments` folder.  For more info on the various ways to attach files, read the docs here: https://nodemailer.com/message/attachments/
 
-* Embedded image documentation here: https://nodemailer.com/message/embedded-images/
+* Embedded image documentation is here: https://nodemailer.com/message/embedded-images/
 
 ---
 

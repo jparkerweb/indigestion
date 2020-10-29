@@ -1,0 +1,6 @@
+{
+	"from": "<xyz@abc.com>",
+	"to": "zoo@animals.com",
+	"subject": "Simple Email 3",
+	"text": "I'm a plain text email sample...\n Nothing to see here."
+}

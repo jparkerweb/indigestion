@@ -1,0 +1,7 @@
+{
+	"reportsDirectory": "../results/",
+	"environmentsDirectory": "../environments/",
+	"environment": "localhost.json",
+	"testsDirectory": "../tests/",
+	"ignoreTestArray": ["conftest.py"]
+}

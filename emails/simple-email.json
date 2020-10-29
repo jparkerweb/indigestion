@@ -1,0 +1,17 @@
+{
+	"from": "\"Justin Parker\" <justin.parker@smarsh.com>",
+	"to": "jack@pumpkin.com",
+	"cc": "\"Penny Sue\" <penny.sue@acme.com>",
+	"subject": "Simple Email",
+	"text": "Simple Email",
+	"html": "<b>Simple Email</b>",
+	"attachments": [
+		{
+			"path": "./attachments/fire.png"
+		},
+		{
+			"filename": "license.txt",
+			"path": "https://raw.github.com/nodemailer/nodemailer/master/LICENSE"
+		}
+	]
+}

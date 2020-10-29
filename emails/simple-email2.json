@@ -1,0 +1,13 @@
+{
+	"from": "\"Fred Foo\" <foo@example.com>",
+	"to": "bar@example.com, baz@example.com",
+	"subject": "Simple Email 2",
+	"html": "<div style='color:red;'> Embedded Image: <img src='cid:my-fire-picture-id'/> </div>",
+	"attachments": [
+		{
+			"filename": "fire.png",
+			"path": "./attachments/fire.png",
+			"cid": "my-fire-picture-id"
+		}
+	]
+}

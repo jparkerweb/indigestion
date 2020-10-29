@@ -7,7 +7,6 @@ var forEach = require('mout/array/forEach')    // foreach array util
 var sort = require('mout/array/sort')          // sort array util
 var unique = require('mout/array/unique')      // unique array util
 var blank = require('./_blankLine')
-var config = require('../config.json')
 
 function getAllEmails(logit, includeBack) {
 	if (typeof logit === 'undefined' ) { logit = false }

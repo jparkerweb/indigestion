@@ -4,7 +4,6 @@
 // jshint esversion: 8
 
 var sendAllTestEmails = function(spinner){
-	var config = require('../config.json')
 	let nodemailer = require("nodemailer")
 
 	// remove old config from cache

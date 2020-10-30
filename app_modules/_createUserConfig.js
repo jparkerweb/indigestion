@@ -2,34 +2,47 @@
 // - create user config -
 // ----------------------
 
-var fs = require('fs')
-
-
-function createUserConfig() {
+function createUserConfig(edit) {
 	return new Promise(function(resolve, reject) {
-		var filepath = 'userconfig.json'
+		let fs = require('fs')
+		let inquirer = require('inquirer')
+		let colors = require("colors")
+		let questionsUserconfig = require('./_questionsUserconfig')
+		let filepath = 'userconfig.json'
 
-		if (!fs.existsSync(filepath)) {
-			console.log('creating userconfig.json....'.red)
-
-			let defaultSMTPHost = 'smtp.ethereal.email'
-			let defaultSMTPPort = 587
-			let defaultSMTPSecure = false
-			let defaultSMTPUser = ''
-			let defaultSMTPPass = ''
-			let userconfig = {
-				host: defaultSMTPHost,
-				port: defaultSMTPPort,
-				secure: defaultSMTPSecure,
-				user: defaultSMTPUser,
-				pass: defaultSMTPPass
+		if (edit || !fs.existsSync(filepath)) {
+			if (!edit) {
+				console.log()
+				console.log("Welcome to Indigestion!".bgRed.brightYellow)
+				console.log("-----------------------".brightYellow)
+				console.log("Before we get started we first need".brightYellow)
+				console.log("to store your SMTP transport settings".brightYellow)
+				console.log("for delivering messages.".brightYellow)
+				console.log()
+			} else {
+				console.log()
+				console.log("Editing your `userconfig.json` file".bgRed.brightYellow)
+				console.log("-----------------------------------".brightYellow)
+				console.log()
 			}
-			let data = JSON.stringify(userconfig, null, 4)
-			// console.log('data',data)
 
-			fs.writeFile(filepath, data, function (err) {
-				resolve('created')
-			})
+			inquirer.prompt(questionsUserconfig())
+				.then(function (answerAction) {
+					let userconfig = {
+						host: answerAction.newHost,
+						port: answerAction.newPort,
+						secure: answerAction.newSecure,
+						user: answerAction.newUser,
+						pass: answerAction.newPass
+					}
+
+					let data = JSON.stringify(userconfig, null, 4)
+					// console.log('data',data)
+
+					fs.writeFile(filepath, data, function (err) {
+						resolve('created')
+					})
+				})
 		} else {
 			resolve()
 		}

@@ -7,13 +7,10 @@ let questionsUserconfig = function() {
 	var userconfig = {}
 
 	if (fs.existsSync('userconfig.json')) {
-		console.log("userconfig EXISTS!!!!!!!!!".bgYellow.black)
 		// refresh userconfig cache
 		delete require.cache[require.resolve('../userconfig.json')]
 		userconfig = require('../userconfig.json')
 		// console.log("userconfig", userconfig)
-	} else {
-		console.log("userconfig DOES NOT EXIST!!!!!!!!!".bgYellow.black)
 	}
 
 	let currentHost = userconfig.host ? userconfig.host : 'smtp.ethereal.email'

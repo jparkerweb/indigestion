@@ -17,6 +17,10 @@ var questionsTestType = [
 				value: 'send-all-test-emails'
 			},
 			{
+				name: '- Update Userconfig.json',
+				value: 'update-userconfig'
+			},
+			{
 				name: '- [-- EXIT --]',
 				value: ''
 			}

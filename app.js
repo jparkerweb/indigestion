@@ -46,6 +46,18 @@ function indigestion(msg) {
 
 						break
 
+					case 'update-userconfig':
+						// console.log(answerAction.testType)
+						createUserConfig(true)
+							.then(function(){
+								console.log("")
+								console.log("`".red + "userconfig.json".brightYellow + "` was updated".red)
+								console.log("")
+								pressEnterToContinue('press enter to continue...', indigestion)
+							})
+
+						break
+
 					default:
 						console.log("some other action: ", answerAction.testType)
 						spinner.stop()
@@ -67,7 +79,6 @@ createUserConfig()
 		if(msg) {
 			console.log("")
 			console.log("a `".red + "userconfig.json".brightYellow + "` file was created in the root of this project".red)
-			console.log("please edit its configuration values before continuing".red)
 			console.log("")
 			pressEnterToContinue('"Press enter to continue...', indigestion)
 		} else {

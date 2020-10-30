@@ -7,7 +7,7 @@
 ---
 
 ## Goal
-**Indigestion**'s goal is to present an easy to use interface that allows users quickly and easily send `test messages` for ingestion in `PAC` in preparation for `TAPTAP` execution.
+**Indigestion**'s goal is to provide an interface that allows users a quick and easy method for sending `test messages` for ingestion into `PAC` in preparation for `TAPTAP` execution.
 
 ---
 

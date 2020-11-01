@@ -9,10 +9,6 @@ var questionsTestType = [
 		message: 'Welcome to Indigestion.\n  Please Choose an action.',
 		choices: [
 			{
-				name: '',
-				value: ''
-			},
-			{
 				name: '- Send ALL test Emails',
 				value: 'send-all-test-emails'
 			},
@@ -22,6 +18,10 @@ var questionsTestType = [
 			},
 			{
 				name: '- [-- EXIT --]',
+				value: ''
+			},
+			{
+				name: '',
 				value: ''
 			}
 		],

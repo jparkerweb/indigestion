@@ -23,31 +23,32 @@ let questionsUserconfig = function() {
 		{
 			type: 'input',
 			name: 'newHost',
-			message: '\nSMTP Host address:\n',
+			message: 'SMTP Host address:',
 			default: currentHost
 		},
 		{
 			type: 'number',
 			name: 'newPort',
-			message: '\nPort:\n',
+			message: 'Port:',
 			default: currentPort
 		},
 		{
 			type: 'confirm',
 			name: 'newSecure',
-			message: '\nSecure (Yes for port 465, No for other ports):\n',
+			message: 'Secure - Yes for port 465, No for other ports:',
 			default: currentSecure
 		},
 		{
 			type: 'input',
 			name: 'newUser',
-			message: '\nUser:\n',
+			message: 'User:',
 			default: currentUser
 		},
 		{
-			type: 'input',
+			type: 'password',
 			name: 'newPass',
-			message: '\nPassword:\n',
+			message: 'Password:',
+			mask: '*',
 			default: currentPass
 		},
 	]

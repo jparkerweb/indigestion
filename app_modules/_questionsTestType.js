@@ -9,19 +9,27 @@ var questionsTestType = [
 		message: 'Welcome to Indigestion.\n  Please Choose an action.',
 		choices: [
 			{
-				name: '- Send ALL test Emails',
-				value: 'send-all-test-emails'
-			},
-			{
-				name: '- Update Userconfig.json',
-				value: 'update-userconfig'
-			},
-			{
-				name: '- [-- EXIT --]',
+				name: '',
 				value: ''
 			},
 			{
+				name: '- Send all test Emails',
+				value: 'send-all-test-emails'
+			},
+			{
+				name: '- Create new Email file',
+				value: 'create-new-email'
+			},
+			{
+				name: '- Update Userconfig',
+				value: 'update-userconfig'
+			},
+			{
 				name: '',
+				value: ''
+			},
+			{
+				name: '- [-- EXIT --]',
 				value: ''
 			}
 		],

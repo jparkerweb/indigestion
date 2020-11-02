@@ -97,7 +97,7 @@ var sendAllTestEmails = function(spinner){
 	return new Promise(function(resolve, reject) {
 		if (userconfig.user === "" || userconfig.pass === "") {
 			console.log("")
-			console.log("ERROR: please configure your \"".red + "userconfig.json".brightYellow + "\" file and try again".red)
+			console.log("ERROR: please update your \"".red + "userconfig.json".brightYellow + "\" file and try again".red)
 			console.log("")
 			resolve()
 		} else {

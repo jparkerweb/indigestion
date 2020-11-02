@@ -40,7 +40,7 @@ function createUserConfig(edit) {
 					// console.log('data',data)
 
 					fs.writeFile(filepath, data, function (err) {
-						resolve('created')
+						resolve('finished writing userconfig file')
 					})
 				})
 		} else {

@@ -9,11 +9,13 @@ var Spinner = require('cli-spinner').Spinner   // cool console spinner (progress
 var nodeCleanup = require('node-cleanup')
 
 var pressEnterToContinue = require('./app_modules/_pressEnterToContinue')
-var sendAllTestEmails = require('./app_modules/_sendAllTestEmails')
 var cls = require('./app_modules/_clearConsole')
 var blank = require('./app_modules/_blankLine')
 var asciiLogo = require('./app_modules/_asciiLogo')
+var sendAllTestEmails = require('./app_modules/_sendAllTestEmails')
+var createEmailFile = require('./app_modules/_createEmailFile')
 var createUserConfig = require('./app_modules/_createUserConfig')
+const { resolveContent } = require("nodemailer/lib/shared")
 
 
 // -----------------
@@ -46,21 +48,36 @@ function indigestion(msg) {
 
 						break
 
+					case 'create-new-email':
+						// console.log(answerAction.testType)
+						createEmailFile(false)
+							.then(function(message) {
+								console.log("")
+								console.log("new ".red + "email".brightYellow + " created".red)
+								console.log("")
+								setTimeout(() => {
+									pressEnterToContinue('', indigestion(''))
+								}, 1000);
+							})
+
+						break
+
 					case 'update-userconfig':
 						// console.log(answerAction.testType)
 						createUserConfig(true)
-							.then(function(){
+							.then(function() {
 								console.log("")
 								console.log("`".red + "userconfig.json".brightYellow + "` was updated".red)
 								console.log("")
 								pressEnterToContinue('press enter to continue...', indigestion)
 							})
-
-						break
-
+							
+							break
+							
 					default:
-						console.log("some other action: ", answerAction.testType)
+						console.log("action noy yet available: ", answerAction.testType)
 						spinner.stop()
+						pressEnterToContinue('press enter to continue...', indigestion)
 			} //\ end switch
 		} else {
 			cls()
@@ -68,6 +85,7 @@ function indigestion(msg) {
 
 			console.log('\nThanks for using '.brightYellow + 'Indigestion'.red)
 			console.log('May all your tests pass!\n'.brightYellow)
+			return ''
 		}
 	})
 }

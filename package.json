@@ -5,7 +5,8 @@
   "main": "app.js",
   "scripts": {
     "app": "node app",
-    "indigestion": "node app"
+    "indigestion": "node app",
+    "indigestion-email": "node app --email"
   },
   "keywords": [
     "PAC",

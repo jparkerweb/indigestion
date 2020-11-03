@@ -21,6 +21,10 @@ var questionsTestType = [
 				value: 'create-new-email'
 			},
 			{
+				name: '- Select Emails for Deletion',
+				value: 'delete-email'
+			},
+			{
 				name: '- Update Userconfig',
 				value: 'update-userconfig'
 			},

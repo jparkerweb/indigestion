@@ -17,6 +17,7 @@ var blank = require('./app_modules/_blankLine')
 var asciiLogo = require('./app_modules/_asciiLogo')
 var sendAllTestEmails = require('./app_modules/_sendAllTestEmails')
 var createEmailFile = require('./app_modules/_createEmailFile')
+var deleteEmailFile = require('./app_modules/_deleteEmailFile')
 var createUserConfig = require('./app_modules/_createUserConfig')
 const { resolveContent } = require("nodemailer/lib/shared")
 
@@ -63,12 +64,26 @@ function indigestion(msg) {
 					case 'create-new-email':
 						// console.log(answerAction.testType)
 						createEmailFile(false)
-							.then(function(message) {
+							.then(function() {
 								console.log("")
 								console.log("new ".red + "email".brightYellow + " created".red)
 								console.log("")
 								setTimeout(() => {
 									pressEnterToContinue('', indigestion(''))
+								}, 1000);
+							})
+
+						break
+
+					case 'delete-email':
+						// console.log(answerAction.testType)
+						deleteEmailFile(false)
+							.then(function(msg) {
+								console.log("")
+								console.log(msg + "".brightYellow)
+								console.log("")
+								setTimeout(() => {
+									pressEnterToContinue('press enter to continue...', indigestion)
 								}, 1000);
 							})
 

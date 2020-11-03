@@ -13,12 +13,20 @@ var questionsTestType = [
 				value: ''
 			},
 			{
-				name: '- Send ALL test Emails',
+				name: '- Send all test Emails',
 				value: 'send-all-test-emails'
 			},
 			{
-				name: '- Update Userconfig.json',
+				name: '- Create new Email file',
+				value: 'create-new-email'
+			},
+			{
+				name: '- Update Userconfig',
 				value: 'update-userconfig'
+			},
+			{
+				name: '',
+				value: ''
 			},
 			{
 				name: '- [-- EXIT --]',

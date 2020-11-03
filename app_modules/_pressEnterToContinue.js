@@ -1,7 +1,7 @@
-// -------------------------------------------------------------
-// -- function that will display a message and wait for the   --
-// -- user to press an key (accepts a message and a callback) --
-// -------------------------------------------------------------
+// ------------------------------------------------------------
+// -- function that will display a message and wait for the  --
+// -- user to press a key (accepts a message and a callback) --
+// ------------------------------------------------------------
 
 var pressEnterToContinue = function(message, cb) {
 	var readline = require('readline')

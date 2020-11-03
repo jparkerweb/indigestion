@@ -1,19 +1,33 @@
-// **********************************************
-// ** indigestion is a GUI for running TAPTAP Tests  **
-// **********************************************
-// jshint esversion: 6
+#!/usr/bin/env node
 
+// ****************************************************
+// ** indigestion is a GUI for running TAPTAP Tests  **
+// ****************************************************
+// jshint esversion: 8
+
+const args = require('args')
 var colors = require("colors")                 // pretty console colors
 var inquirer = require('inquirer')             // prompt questions and gather answers
 var Spinner = require('cli-spinner').Spinner   // cool console spinner (progress indicator)
 var nodeCleanup = require('node-cleanup')
 
 var pressEnterToContinue = require('./app_modules/_pressEnterToContinue')
-var sendAllTestEmails = require('./app_modules/_sendAllTestEmails')
 var cls = require('./app_modules/_clearConsole')
 var blank = require('./app_modules/_blankLine')
 var asciiLogo = require('./app_modules/_asciiLogo')
+var sendAllTestEmails = require('./app_modules/_sendAllTestEmails')
+var createEmailFile = require('./app_modules/_createEmailFile')
 var createUserConfig = require('./app_modules/_createUserConfig')
+const { resolveContent } = require("nodemailer/lib/shared")
+
+
+// --------------
+// - setup args -
+// --------------
+args
+	.option('email', 'send all email', ['e'])
+
+	const flags = args.parse(process.argv)
 
 
 // -----------------
@@ -46,21 +60,36 @@ function indigestion(msg) {
 
 						break
 
+					case 'create-new-email':
+						// console.log(answerAction.testType)
+						createEmailFile(false)
+							.then(function(message) {
+								console.log("")
+								console.log("new ".red + "email".brightYellow + " created".red)
+								console.log("")
+								setTimeout(() => {
+									pressEnterToContinue('', indigestion(''))
+								}, 1000);
+							})
+
+						break
+
 					case 'update-userconfig':
 						// console.log(answerAction.testType)
 						createUserConfig(true)
-							.then(function(){
+							.then(function() {
 								console.log("")
 								console.log("`".red + "userconfig.json".brightYellow + "` was updated".red)
 								console.log("")
 								pressEnterToContinue('press enter to continue...', indigestion)
 							})
-
-						break
-
+							
+							break
+							
 					default:
-						console.log("some other action: ", answerAction.testType)
+						console.log("action noy yet available: ", answerAction.testType)
 						spinner.stop()
+						pressEnterToContinue('press enter to continue...', indigestion)
 			} //\ end switch
 		} else {
 			cls()
@@ -68,20 +97,27 @@ function indigestion(msg) {
 
 			console.log('\nThanks for using '.brightYellow + 'Indigestion'.red)
 			console.log('May all your tests pass!\n'.brightYellow)
+			return ''
 		}
 	})
 }
 
+
 nodeCleanup()
-createUserConfig()
-	.then(function(msg) {
-		cls()
-		if(msg) {
-			console.log("")
-			console.log("a `".red + "userconfig.json".brightYellow + "` file was created in the root of this project".red)
-			console.log("")
-			pressEnterToContinue('"Press enter to continue...', indigestion)
-		} else {
-			indigestion()
-		}
-	})
+
+if (flags.email[0] === true) {
+	sendAllTestEmails()
+} else {
+	createUserConfig()
+		.then(function(msg) {
+			cls()
+			if(msg) {
+				console.log("")
+				console.log("a `".red + "userconfig.json".brightYellow + "` file was created in the root of this project".red)
+				console.log("")
+				pressEnterToContinue('"Press enter to continue...', indigestion)
+			} else {
+				indigestion()
+			}
+		})
+}

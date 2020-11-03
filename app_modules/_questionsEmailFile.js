@@ -23,20 +23,20 @@ let questionsEmailFile = function(emailPath) {
 
 
 	let currentFileName = emailPath ? emailPath : ('email-' + randomString(10))
-	let currentFrom = emailFile.from ? emailFile.from : 'person@smarsh.com'
-	let currentTo = emailFile.to ? emailFile.to : 'person2@smarsh.com, person3@smarsh.com'
+	let currentFrom = emailFile.from ? emailFile.from : '\"Mr Sender\" <sender@noreply.com>"'
+	let currentTo = emailFile.to ? emailFile.to : 'recipient.one@noreply.com, recipient.two@noreply.com'
 	let currentCc = emailFile.cc ? emailFile.cc : null
 	let currentBcc = emailFile.bcc ? emailFile.bcc : null
 	let currentSubject = emailFile.subject ? emailFile.subject : randomSentence()
 	let currentHtml = emailFile.html ? emailFile.html : randomSentence()
 	let currentText = emailFile.text ? emailFile.text : null
-	let theChoices = []
+	let currentAttachments = []
 	getAllAttachments().then((allAttachmentsList)=>{
 		for (const property in allAttachmentsList) {
 			// console.log(`${property}: ${allAttachmentsList[property]}`);
-			var theValue = `${allAttachmentsList[property]}`
-			theValue = theValue.replace(/.\/attachments\//g,'')
-			theChoices.push({value: theValue})
+			var theAttachmentName = `${allAttachmentsList[property]}`
+			theAttachmentName = theAttachmentName.replace(/.\/attachments\//g,'')
+			currentAttachments.push({value: theAttachmentName})
 		}
 	})
 
@@ -93,7 +93,7 @@ let questionsEmailFile = function(emailPath) {
 			type: 'checkbox',
 			name: 'newAttachments',
 			message: 'select attachments:',
-			choices: theChoices
+			choices: currentAttachments
 		},
 	]
 

@@ -1,6 +1,12 @@
 # Change Log
 All notable changes to  `Indigestion` are documented in this file.
 
+## v1.3.0 | 2020-11-3 | Delete Selected Emails
+- Select Emails for Deletion
+  - 🔥 Multi-select control to select and `delete` Emails from the UI
+
+---
+
 ## v1.2.0 | 2020-11-2 | Create Emails & Command Line Send
 - Create Emails
   - 🔥 New menu option to create new email json files from the UI
@@ -13,6 +19,8 @@ All notable changes to  `Indigestion` are documented in this file.
       - `npm run indigestion-email`
       - `bash indigestion-email.sh`
       - `indigestion.cmd` (windows)
+
+---
 
 ## v1.1.0 | 2020-10-30 | Create/Update SMTP transport settings from UI
 ### Features

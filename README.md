@@ -52,6 +52,9 @@ requires you to have a pre-configured `userconfig.json`
 * #### Create new Email file
   * Creates a new email `.json` file and stores it in the `./emails` folder.  The UI will prompt you for all possible email field values (`from`, `to`, `cc`, `bcc`, `subject`, `text`, `html`, `attachments`).
 
+* #### Select Emails for Deletion
+  * Multi-select control to select and `delete` Emails from the UI.
+
 * #### Update Userconfig
   * Update your `userconfig.json` file values via UI prompts.
 

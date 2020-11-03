@@ -99,6 +99,6 @@ requires you to have a pre-configured `userconfig.json` (run indigestion once wi
 
 ---
 
-## Example Run
+## Example of Indigestion Running
 
 ![Indigestion](./docs/indigestion-run.gif)

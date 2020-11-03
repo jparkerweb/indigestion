@@ -23,12 +23,28 @@
 
 ## Run Indigestion
 * `npm run indigestion`
+* or `node app`
+* or `bash indigestion.sh`
+* or `indigestion.cmd` (windows)
 
 ---
 
 ## Initial Configuration
 
-`Indigestion` creates a `userconfig.json` file the first time it is run.  This file holds your SMTP server and authentication values for sending test emails.  Make sure to edit the file before sending any messages.
+`Indigestion` creates a `userconfig.json` file the first time it is run.  This file holds your SMTP server and authentication values for sending test emails.  The UI will walk you through setting up the initial values, and you can also choose to update it at any time.  This is your personal `userconfig` file as it holds your authentication to the sending SMTP server (it is in the `.gitignore` and should never to added to `git`)
+
+---
+
+## UI Menu Options
+
+* #### Send all test Emails
+  * Loops through all email `.json` files in the `./emails` directory and attempts to send them using your SMTP server and authentication values stored in 'userconfig.json`.
+
+* #### Create new Email file
+  * Creates a new email `.json` file and stores it in the `./emails` folder.  The UI will prompt you for all possible email field values (`from`, `to`, `cc`, `bcc`, `subject`, `text`, `html`, `attachments`).
+
+* #### Update Userconfig
+  * Update your `userconfig.json` file values via UI prompts.
 
 ---
 
@@ -56,7 +72,10 @@
 
 * Emails are sent using `nodemailer`.  for more info on message structure reference the docs here: https://nodemailer.com/message/
 
-* Local files you want to attach to test emails should be stored in the `./attachments` folder.  For more info on the various ways to attach files, read the docs here: https://nodemailer.com/message/attachments/
+
+### Attachments
+
+* Local files you want to attach to test emails should be stored in the `./attachments` folder.  This project comes with a wide array of sample files you can use with your emails.  For more info on the various ways to attach files, read the docs here: https://nodemailer.com/message/attachments/
 
 * Embedded image documentation is here: https://nodemailer.com/message/embedded-images/
 

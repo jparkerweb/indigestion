@@ -6,7 +6,7 @@ All notable changes to  `Indigestion` are documented in this file.
   - 🔥 New menu option to create new email json files from the UI
   - 🔥 Added and array of sample files to `./attachments` folder
 
-- Send All Emails from command line
+- Send All Emails from command line (requires you to have a pre-configured `userconfig.json`)
   - 🔥 Pass the `--email` option to `node app` to send emails without using the UI.  
        run one of the following:  
       - `node app --email`

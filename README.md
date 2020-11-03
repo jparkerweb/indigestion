@@ -46,16 +46,16 @@ requires you to have a pre-configured `userconfig.json` (run indigestion once wi
 
 ## UI Menu Options
 
-* #### Send all test Emails
-  * Loops through all email `.json` files in the `./emails` directory and attempts to send them using your SMTP server and authentication values stored in 'userconfig.json`.
+![Indigestion](./docs/command-send-all-test-emails.png)
+* Loops through all email `.json` files in the `./emails` directory and attempts to send them using your SMTP server and authentication values stored in 'userconfig.json`.
 
-* #### Create new Email file
+![Indigestion](./docs/command-create-new-email-file.png)
   * Creates a new email `.json` file and stores it in the `./emails` folder.  The UI will prompt you for all possible email field values (`from`, `to`, `cc`, `bcc`, `subject`, `text`, `html`, `attachments`).
 
-* #### Select Emails for Deletion
+![Indigestion](./docs/command-select-emails-for-deletion.png)
   * Multi-select control to select and `delete` Emails from the UI.
 
-* #### Update Userconfig
+![Indigestion](./docs/command-update-userconfig.png)
   * Update your `userconfig.json` file values via UI prompts.
 
 ---

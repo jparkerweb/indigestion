@@ -1,8 +1,11 @@
-// **********************************************
-// ** indigestion is a GUI for running TAPTAP Tests  **
-// **********************************************
-// jshint esversion: 6
+#!/usr/bin/env node
 
+// ****************************************************
+// ** indigestion is a GUI for running TAPTAP Tests  **
+// ****************************************************
+// jshint esversion: 8
+
+const args = require('args')
 var colors = require("colors")                 // pretty console colors
 var inquirer = require('inquirer')             // prompt questions and gather answers
 var Spinner = require('cli-spinner').Spinner   // cool console spinner (progress indicator)
@@ -16,6 +19,15 @@ var sendAllTestEmails = require('./app_modules/_sendAllTestEmails')
 var createEmailFile = require('./app_modules/_createEmailFile')
 var createUserConfig = require('./app_modules/_createUserConfig')
 const { resolveContent } = require("nodemailer/lib/shared")
+
+
+// --------------
+// - setup args -
+// --------------
+args
+	.option('email', 'send all email', ['e'])
+
+	const flags = args.parse(process.argv)
 
 
 // -----------------
@@ -90,16 +102,22 @@ function indigestion(msg) {
 	})
 }
 
+
 nodeCleanup()
-createUserConfig()
-	.then(function(msg) {
-		cls()
-		if(msg) {
-			console.log("")
-			console.log("a `".red + "userconfig.json".brightYellow + "` file was created in the root of this project".red)
-			console.log("")
-			pressEnterToContinue('"Press enter to continue...', indigestion)
-		} else {
-			indigestion()
-		}
-	})
+
+if (flags.email[0] === true) {
+	sendAllTestEmails()
+} else {
+	createUserConfig()
+		.then(function(msg) {
+			cls()
+			if(msg) {
+				console.log("")
+				console.log("a `".red + "userconfig.json".brightYellow + "` file was created in the root of this project".red)
+				console.log("")
+				pressEnterToContinue('"Press enter to continue...', indigestion)
+			} else {
+				indigestion()
+			}
+		})
+}

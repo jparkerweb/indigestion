@@ -16,6 +16,7 @@
   "author": "Justin Parker",
   "license": "ISC",
   "dependencies": {
+    "args": "^5.0.1",
     "cli-progress": "3.8.2",
     "cli-spinner": "0.2.10",
     "clipboardy": "2.3.0",

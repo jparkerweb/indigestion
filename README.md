@@ -28,13 +28,13 @@
 * or `indigestion.cmd` (windows)
 
 #### Send All Emails from command line
-requires you to have a pre-configured `userconfig.json`
+requires you to have a pre-configured `userconfig.json` (run indigestion once without this option to create it)
 - Pass the `--email` option to `node app` to send emails without using the UI.
 - Run one of the following:  
   - `node app --email`
   - `npm run indigestion-email`
   - `bash indigestion-email.sh`
-  - `indigestion.cmd` (windows)
+  - `indigestion-email.cmd` (windows)
 
 ---
 

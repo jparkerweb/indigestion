@@ -1,4 +1,4 @@
-### ***Send messages to PAC for ingestion before test validation via TAPTAP***
+### ***🔥 Create and Send Emails for test automation***
 
 ---
 
@@ -7,7 +7,7 @@
 ---
 
 ## Goal
-**Indigestion**'s goal is to provide an interface that allows users a quick and easy method for sending `test messages` for ingestion into `PAC` in preparation for `TAPTAP` execution.
+**Indigestion**'s goal is to provide a CLI that allows users a quick and easy method for creating and sending `test emails` in various test automation environments.
 
 ---
 

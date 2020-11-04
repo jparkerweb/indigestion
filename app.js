@@ -26,7 +26,7 @@ const { resolveContent } = require("nodemailer/lib/shared")
 // - setup args -
 // --------------
 args
-	.option('email', 'send all email', ['e'])
+	.option('email', 'send all email')
 
 	const flags = args.parse(process.argv)
 
@@ -120,7 +120,7 @@ function indigestion(msg) {
 
 nodeCleanup()
 
-if (flags.email[0] === true) {
+if (flags.email === true) {
 	sendAllTestEmails()
 } else {
 	createUserConfig()

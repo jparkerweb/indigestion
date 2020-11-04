@@ -1,6 +1,6 @@
 {
   "name": "indigestion",
-  "version": "1.3.0",
+  "version": "1.3.1",
   "description": "App to send curated content for ingestion in PAC before running TAPTAP",
   "main": "app.js",
   "scripts": {
